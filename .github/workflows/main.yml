@@ -11,3 +11,6 @@ jobs:
       - uses: cypress-io/github-action@v4
         with:
           browser: chrome
+        env:
+          HOST: ${{ secrets.CYPRESS_HOST }}
+          API_SERVER: ${{ secrets.API_SERVER}}
