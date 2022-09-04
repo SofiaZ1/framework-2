@@ -4,4 +4,4 @@ cypress.env.json
 cypress/reports
 cypress/screenshots
 cypress/support
-cypress/videoa
+cypress/videos
