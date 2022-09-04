@@ -1,0 +1,22 @@
+{
+  "name": "framework-2",
+  "version": "1.0.0",
+  "description": "cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofiaZ1/framework-2.git"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "sofia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SofiaZ1/framework-2/issues"
+  },
+  "homepage": "https://github.com/SofiaZ1/framework-2#readme"
+}
