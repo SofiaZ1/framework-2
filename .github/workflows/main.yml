@@ -14,21 +14,12 @@ jobs:
         env:
           HOST: ${{ secrets.CYPRESS_HOST }}
           API_SERVER: ${{ secrets.CYPRESS_API_SERVER}}
-
-      - name: Run Cypress tests
-        run: npm run scripts
-        continue-on-error: true    
-
+          
       - name: Copy test execution videos
         run: |
          mkdir public
          cp -r cypress/videos public/videos
-
-      - name: Merge test results into one
-        run: npm run combine-reports
-        
-      - name: Generate HTML report
-        run: npm run report:generatepublic
+         cp -r cypress/reports/mochareports public/reports/mochareports
 
       - name: Deploy report page
         uses: peaceiris/actions-gh-pages@v3
