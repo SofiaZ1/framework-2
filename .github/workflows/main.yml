@@ -14,3 +14,14 @@ jobs:
         env:
           HOST: ${{ secrets.CYPRESS_HOST }}
           API_SERVER: ${{ secrets.CYPRESS_API_SERVER}}
+          
+      - name: Copy report
+        run: 
+          mkdir public
+          cp -r cypress/reports public/reports
+        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
