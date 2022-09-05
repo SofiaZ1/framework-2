@@ -8,6 +8,7 @@ context('Window', () => {
   it('cy.window() - get the global window object', () => {
   
     cy.log( Cypress.env('host'))
+    cy.url().should("not.have.text", Cypress.env('host') )
    
 
     // https://on.cypress.io/window

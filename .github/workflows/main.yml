@@ -13,4 +13,4 @@ jobs:
           browser: chrome
         env:
           HOST: ${{ secrets.CYPRESS_HOST }}
-          API_SERVER: ${{ secrets.API_SERVER}}
+          API_SERVER: ${{ secrets.CYPRESS_API_SERVER}}
