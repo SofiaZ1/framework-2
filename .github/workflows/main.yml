@@ -13,6 +13,14 @@ jobs:
           API_SERVER: ${{ secrets.CYPRESS_API_SERVER}}
           
       - name: Run cypress
+        run: npm run scripts
+      - name: Run cypress2
+        run: npm run combine-reports
+      - name: Run cypress3
+        run: npm run generate-report
+      - name: Run cypress4
+        run: npm run posttest
+      - name: Run cypress5
         run: npm run test:qe
           
       - name: Copy test execution videos
