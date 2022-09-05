@@ -8,31 +8,6 @@ jobs:
     container: cypress/browsers:node12.13.0-chrome78-ff70
     steps:
       - uses: actions/checkout@v2
-        env:
-          HOST: ${{ secrets.CYPRESS_HOST }}
-          API_SERVER: ${{ secrets.CYPRESS_API_SERVER}}
-          
-      - name: Run cypress
-        run: npm run scripts
-      - name: Run cypress2
-        run: npm run combine-reports
-      - name: Run cypress3
-        run: npm run generate-report
-      - name: Run cypress4
-        run: npm run posttest
-      - name: Run cypress5
-        run: npm run test:qe
-          
-      - name: Copy test execution videos
-        run: |
-         mkdir public
-         cp -r cypress/videos public/videos
-         cp -r cypress/reports/mochareports public/reports/mochareports
-
-      - name: Deploy report page
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: cypress-io/github-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          browser: chrome
