@@ -1,16 +1,25 @@
-name: E2E in custom container
+name: Cypress Tests with installation job
+
 on: [push]
+
 jobs:
-  cypress-run:
-    runs-on: ubuntu-20.04
-    # Cypress Docker image with Chrome v78
-    # and Firefox v70 pre-installed
-    container: cypress/browsers:node12.13.0-chrome78-ff70
+  install:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
-      - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v4
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
         with:
-          browser: chrome
-        env:
-          HOST: ${{ secrets.CYPRESS_HOST }}
-          API_SERVER: ${{ secrets.CYPRESS_API_SERVER}}        
+          name: build
+          if-no-files-found: error
+          path: build
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v4
+        with:
+          # Disable running of tests within install job
+          runTests: false
+          build: yarn build
