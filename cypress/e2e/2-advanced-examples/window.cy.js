@@ -9,7 +9,7 @@ context('Window', () => {
   
     cy.log( Cypress.env('host'))
     var test = Cypress.env('host');
-    cy.get('h1').should("not.have.text", test )
+    cy.get('h1').should("have.text", test )
    
 
     // https://on.cypress.io/window
