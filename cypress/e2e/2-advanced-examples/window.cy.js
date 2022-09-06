@@ -8,7 +8,7 @@ context('Window', () => {
   it('cy.window() - get the global window object', () => {
   
     cy.log( Cypress.env('host'))
-    var test = Cypress.env('host');
+    var test = Cypress.env('HOST');
     cy.get('h1').should("have.text", test )
    
 
